@@ -1,0 +1,77 @@
+.blackBackground {
+  background-color: #171717;
+}
+
+.blackBackground2 {
+  background-color: #1c1c1c;
+}
+
+.calenderDay {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: #e6e6e6;
+  opacity: 1;
+  padding: 20px;
+}
+
+.calenderDayMonth {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+}
+
+.borderLeft {
+  border-left: 4px solid #0f6ebe;
+}
+
+.weekoff{
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: #666666;
+  padding-top: 20px;
+}
+
+.header {
+  width: 98%;
+  height: 38px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.monthAndYear {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: #999999;
+
+}
+
+.mainHeader{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
