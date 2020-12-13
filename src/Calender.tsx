@@ -128,19 +128,27 @@ function daysInMonth (month: number, year: number) {
     return new Date(year, month, 0).getDate();
 }
 
-const renderCells = (row: any, classes: any, index: number) => {
+const opacity = (actualDate: Date, current: Date) => {
+    const opacit = (
+        actualDate.getMonth() !== current.getMonth() || 
+        actualDate.getFullYear() !== current.getFullYear()
+    ) ? 'lessOpacity' : '';
+    return opacit;
+}
+
+const renderCells = (row: any, classes: any, index: number, actualDate: Date) => {
     return Object.keys(row).length === 0 && row.constructor === Object
               ? (
                  <></>
               ) : (
                 <TableRow key={row.mon.day.getDate()} className={classes.row}>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.mon)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.tue)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.wed)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.thru)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.fri)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.sat)}</TableCell>
-                    <TableCell className={`${classes.cell} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.sun)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.mon.day)} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.mon)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.tue.day)} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.tue)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.wed.day)} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.wed)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.thru.day)} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.thru)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.fri.day)} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.fri)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.sat.day)} ${getBackgroundColor(index%2 === 0 ? true : false)}`} align="left">{renderDay(row.sat)}</TableCell>
+                    <TableCell className={`${classes.cell} ${opacity(actualDate, row.sun.day)} ${getBackgroundColor(index%2 === 0 ? false : true)}`} align="left">{renderDay(row.sun)}</TableCell>
                 </TableRow>
               )
 }
@@ -176,7 +184,7 @@ const Calendar = (props: {
         </TableHead>
         <TableBody>
           {rows.map((row, index) => {
-              return renderCells(row, classes, index)
+              return renderCells(row, classes, index, props.date)
           })}
         </TableBody>
       </Table>

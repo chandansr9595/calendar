@@ -58,6 +58,10 @@
   color: white;
 }
 
+.lessOpacity { 
+  opacity: 0.4;
+}
+
 .monthAndYear {
   font-family: Poppins;
   font-size: 12px;
